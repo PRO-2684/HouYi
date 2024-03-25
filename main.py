@@ -24,6 +24,9 @@ config = json.load(open(config_file_path))
 # init openai api key
 openai.api_key = config["openai_key"]
 
+# init openai api endpoint
+openai.api_base = config["openai_endpoint"]
+
 # try times
 try_times = 3
 

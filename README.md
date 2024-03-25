@@ -29,10 +29,11 @@ Please install the following packages and make sure you have Python 3.8+ install
 pip install -r requirements.txt
 ```
 
-Because HouYi is based on GPT, you need to setup openai key to use it. Fill in your openai key in `config.json`.
+Because HouYi is based on GPT, you need to setup openai key to use it. Fill in your openai key in `config.json`, and the endpoint of openai in `config.json` as well.
 ```json
 {
-  "openai_key": "YOUR_KEY_HERE"
+  "openai_key": "YOUR_KEY_HERE",
+  "openai_endpoint": "https://api.openai.com/v1"
 }
 ```
 
