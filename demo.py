@@ -4,6 +4,7 @@ import pathlib
 import loguru
 import openai
 
+from util.openai_util import estimated_cost
 from constant.prompt_injection import PromptInjection
 from context_infer import ContextInfer
 from harness.base_harness import Harness
@@ -89,6 +90,7 @@ def main():
         logger.info(f"Success! Injected prompt: {injected_prompt}")
     else:
         logger.info(f"Failed! Injected prompt: {injected_prompt}")
+    logger.info(f"Estimated cost: {estimated_cost()}")
 
 
 if __name__ == "__main__":
