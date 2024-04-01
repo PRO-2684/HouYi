@@ -4,6 +4,8 @@ import pathlib
 import loguru
 import openai
 
+from sys import stdout
+
 from util.openai_util import estimated_cost
 from constant.prompt_injection import PromptInjection
 from context_infer import ContextInfer
@@ -16,6 +18,9 @@ from strategy.framework_generation import FRAMEWORK_GENERATION_STRATEGY
 from strategy.separator_generation import SEPARATOR_GENERATOR_LIST
 
 logger = loguru.logger
+logger.remove()
+logger.add("logs/demo_{time}.log")
+logger.add(stdout, colorize=True, format="[<green>{time:HH:mm:ss}</green>] <lvl>{message}</lvl>")
 
 # load config file from root path
 config_file_path = pathlib.Path("./config.json")
@@ -90,7 +95,7 @@ def main():
         logger.info(f"Success! Injected prompt: {injected_prompt}")
     else:
         logger.info(f"Failed! Injected prompt: {injected_prompt}")
-    logger.info(f"Estimated cost: {estimated_cost()}")
+    logger.info(f"Estimated cost: ¥{estimated_cost()}")
 
 
 if __name__ == "__main__":
